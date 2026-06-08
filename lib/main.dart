@@ -1,16 +1,12 @@
+import 'package:flame/flame.dart';
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:handsprint/handsprint_game.dart';
 
-void main() {
-  runApp(const MyApp());
+void main()async {
+   WidgetsFlutterBinding.ensureInitialized();
+   await Flame.device.fullScreen();
+  await Flame.device.setPortrait();
+  runApp(GameWidget(game:HandsprintGame())); 
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-     debugShowCheckedModeBanner:false);
-  }
-}

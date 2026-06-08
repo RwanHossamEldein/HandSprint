@@ -1,9 +1,9 @@
 class GameImages {
-  static const String background = 'assets/images/background_handsprint.png';
-  static const String coinsAndObstacles = 'assets/images/coins_obstacles.png';
-  static const String player1 = 'assets/images/player1.png';
-  static const String player2 = 'assets/images/player2.png';
-   static const String player3 = 'assets/images/player3.png';
-
-  
+ 
+  static const String coins = 'coins.png';
+  static const String jumpObstacle = 'jump_obstacles.png';
+  static const String slideObstacle = 'slide_obstacles.png';
+  static const String player = 'player.png';
+  static const String road = 'road.png';
+  static const String skyCity = 'sky_city.png';
 }

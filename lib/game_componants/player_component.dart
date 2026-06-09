@@ -56,7 +56,7 @@ class PlayerComponent extends SpriteAnimationGroupComponent<PlayerState> with Ha
         amount: 4,
         stepTime: 0.1,
         textureSize: frameSize,
-        texturePosition: Vector2(0, 250),
+        texturePosition: Vector2(0, 244),
       ),
     );
 

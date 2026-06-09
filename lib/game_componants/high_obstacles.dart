@@ -1,9 +1,12 @@
 import 'dart:math';
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:handsprint/const/game_images/game_images.dart';
 import 'package:handsprint/game_componants/game_lane.dart';
+import 'package:handsprint/game_componants/player_component.dart';
+import 'package:handsprint/handsprint_game.dart';
 
-class HighObstacles extends SpriteComponent with HasGameRef {
+class HighObstacles extends SpriteComponent with HasGameRef<HandsprintGame>, CollisionCallbacks {
   late LanePosition currentLane;
   final GameLane gameLane;
   
@@ -18,6 +21,7 @@ class HighObstacles extends SpriteComponent with HasGameRef {
   @override
   Future<void> onLoad() async {
     super.onLoad();
+add(CircleHitbox()..collisionType = CollisionType.passive);
 
     final lanes = [LanePosition.left, LanePosition.center, LanePosition.right];
     currentLane = lanes[Random().nextInt(lanes.length)];
@@ -54,4 +58,10 @@ class HighObstacles extends SpriteComponent with HasGameRef {
       removeFromParent();
     }
   }
-}
+    @override
+     void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
+         super.onCollisionStart(intersectionPoints, other);
+         if (other is PlayerComponent) {
+           gameRef.gameOver(); 
+         }
+}}

@@ -1,9 +1,10 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:handsprint/const/game_images/game_images.dart';
 import 'package:handsprint/game_componants/game_lane.dart';
 import 'package:handsprint/game_componants/player_state.dart';
 
-class PlayerComponent extends SpriteAnimationGroupComponent<PlayerState> with HasGameRef {
+class PlayerComponent extends SpriteAnimationGroupComponent<PlayerState> with HasGameRef, CollisionCallbacks {
   LanePosition currentLane = LanePosition.center;
   final GameLane gameLane;
   
@@ -26,7 +27,7 @@ class PlayerComponent extends SpriteAnimationGroupComponent<PlayerState> with Ha
   @override
   Future<void> onLoad() async {
     super.onLoad();
-
+add(CircleHitbox(radius: size.x * 0.4, anchor: Anchor.center, position: size / 2));
     final spriteSheet = await gameRef.images.load(GameImages.player);
 // run animation (first row of the sprite sheet)
     final runAnimation = SpriteAnimation.fromFrameData(
@@ -93,7 +94,7 @@ class PlayerComponent extends SpriteAnimationGroupComponent<PlayerState> with Ha
     }
   }
 
-  // ─── دالة القفز ───
+
   void jump() {
     if (current == PlayerState.running) {
       current = PlayerState.jumping;

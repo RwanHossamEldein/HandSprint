@@ -4,12 +4,12 @@ import 'package:flame/components.dart';
 import 'package:handsprint/const/game_images/game_images.dart';
 import 'package:handsprint/game_componants/game_lane.dart';
 import 'package:handsprint/game_componants/player_component.dart';
+import 'package:handsprint/game_componants/player_state.dart';
 import 'package:handsprint/handsprint_game.dart';
 
 class HighObstacles extends SpriteComponent with HasGameRef<HandsprintGame>, CollisionCallbacks {
   late LanePosition currentLane;
-  final GameLane gameLane;
-  
+  final GameLane gameLane;  
   final double scrollSpeed = 230.0; 
   late double targetX;
 
@@ -21,7 +21,13 @@ class HighObstacles extends SpriteComponent with HasGameRef<HandsprintGame>, Col
   @override
   Future<void> onLoad() async {
     super.onLoad();
-add(CircleHitbox()..collisionType = CollisionType.passive);
+add(RectangleHitbox(
+  size: Vector2.all(size.y*0.4),
+
+  anchor: Anchor.center,
+  position: size / 2,
+)..collisionType = CollisionType.passive);
+
 
     final lanes = [LanePosition.left, LanePosition.center, LanePosition.right];
     currentLane = lanes[Random().nextInt(lanes.length)];
@@ -61,7 +67,10 @@ add(CircleHitbox()..collisionType = CollisionType.passive);
     @override
      void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
          super.onCollisionStart(intersectionPoints, other);
+       
          if (other is PlayerComponent) {
-           gameRef.gameOver(); 
+          if (other.current != PlayerState.sliding) {
+      gameRef.gameOver(); 
+    }
          }
 }}

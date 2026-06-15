@@ -4,12 +4,14 @@ import 'package:flame/components.dart';
 import 'package:handsprint/const/game_images/game_images.dart';
 import 'package:handsprint/game_componants/game_lane.dart';
 import 'package:handsprint/game_componants/player_component.dart';
+import 'package:handsprint/game_componants/player_state.dart';
 import 'package:handsprint/handsprint_game.dart';
 
 // ignore: deprecated_member_use
 class LowObstacles extends SpriteComponent with HasGameRef<HandsprintGame>,CollisionCallbacks {
   late LanePosition currentLane;
   final GameLane gameLane;
+  late PlayerState playerState;
   
   final double scrollSpeed = 230.0; 
   late double targetX;
@@ -22,7 +24,12 @@ class LowObstacles extends SpriteComponent with HasGameRef<HandsprintGame>,Colli
   @override
   Future<void> onLoad() async {
     super.onLoad();
-add(CircleHitbox()..collisionType = CollisionType.passive);
+add(RectangleHitbox(
+  size: Vector2.all(size.y*0.4),
+
+  anchor: Anchor.center,
+  position: size / 2,
+)..collisionType = CollisionType.passive);
 
     final lanes = [LanePosition.left, LanePosition.center, LanePosition.right];
     currentLane = lanes[Random().nextInt(lanes.length)];
@@ -64,7 +71,10 @@ add(CircleHitbox()..collisionType = CollisionType.passive);
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollisionStart(intersectionPoints, other);
     if (other is PlayerComponent) {
-      gameRef.gameOver(); 
+      if (other.current!= PlayerState.jumping) {
+           gameRef.gameOver(); 
+      }
+   
     }
   }
 }

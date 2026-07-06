@@ -23,6 +23,7 @@ class HandsprintGame extends FlameGame
   late TextComponent scoreText;
 
   int score = 0;
+  VoidCallback? onReset;
 
  
 
@@ -116,6 +117,7 @@ class HandsprintGame extends FlameGame
     spawnTimer.start();
 
     resumeEngine();
+    onReset?.call();
   }
 
   void gameOver() {

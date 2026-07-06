@@ -10,7 +10,7 @@ import 'package:handsprint/handsprint_game.dart';
 class HighObstacles extends SpriteComponent with HasGameRef<HandsprintGame>, CollisionCallbacks {
   late LanePosition currentLane;
   final GameLane gameLane;  
-  final double scrollSpeed = 230.0; 
+  final double scrollSpeed = 160.0; 
   late double targetX;
 
  

@@ -13,7 +13,7 @@ class LowObstacles extends SpriteComponent with HasGameRef<HandsprintGame>,Colli
   final GameLane gameLane;
   late PlayerState playerState;
   
-  final double scrollSpeed = 230.0; 
+  final double scrollSpeed = 160.0; 
   late double targetX;
 
 

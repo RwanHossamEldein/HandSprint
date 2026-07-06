@@ -12,7 +12,7 @@ class Coins extends SpriteAnimationGroupComponent<PlayerState> with HasGameRef<H
   final GameLane gameLane;
   
 
-  final double scrollSpeed = 200.0; 
+  final double scrollSpeed = 140.0; 
   late double targetX;
   
   // 2S EL SHEET

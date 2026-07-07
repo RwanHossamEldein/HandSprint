@@ -1,6 +1,3 @@
-<img width="1920" height="1080" alt="Screenshot (457)" src="https://github.com/user-attachments/assets/7246a9f8-4e2a-406a-8006-338c20437694" />
-<img width="1920" height="1080" alt="Screenshot (458)" src="https://github.com/user-attachments/assets/d33dabdd-ec70-44f3-9b7d-b76fd534b67e" />
-<img width="1920" height="1080" alt="Screenshot (459)" src="https://github.com/user-attachments/assets/11bf9963-b843-49c0-bff1-3793b9a49696" />
 # HandSprint 🏃‍♂️🎮
 
 **HandSprint** is an innovative, touchless 2D endless runner game built using the **Flutter** framework and **Flame Game Engine**. Controlled entirely by real-time body and hand gestures captured via the front camera, HandSprint brings a Wii/Kinect-style gaming experience directly to your mobile device using **Google ML Kit Pose Detection**.
@@ -92,4 +89,8 @@ To make this game run smoothly on mid-range and budget devices, we implemented s
 * **Physics Stability:** Clamped the movement interpolation coefficient to prevent the player character from flying off-screen or disappearing during heavy lag spikes.
 * **Dynamic Horizon Scaling:** Obstacles scale up dynamically relative to their movement speed, creating a clean perspective effect while starting from a tiny Y-coordinate.
 
-
+  
+## Screenshots
+<img width="1920" height="1080" alt="Screenshot (457)" src="https://github.com/user-attachments/assets/7246a9f8-4e2a-406a-8006-338c20437694" />
+<img width="1920" height="1080" alt="Screenshot (458)" src="https://github.com/user-attachments/assets/d33dabdd-ec70-44f3-9b7d-b76fd534b67e" />
+<img width="1920" height="1080" alt="Screenshot (459)" src="https://github.com/user-attachments/assets/11bf9963-b843-49c0-bff1-3793b9a49696" />

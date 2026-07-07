@@ -18,7 +18,7 @@ class GameScreen extends StatefulWidget {
 
 class _GameScreenState extends State<GameScreen> {
   DateTime? _lastProcessedFrameTime;
-final Duration _throttleDuration = const Duration(milliseconds: 200);
+final Duration _throttleDuration = const Duration(milliseconds: 80);
   late HandsprintGame game;
   bool isReady = false;
   late PoseDetectorService poseDetectorService;
@@ -33,7 +33,6 @@ final Duration _throttleDuration = const Duration(milliseconds: 200);
     super.initState();
     game = HandsprintGame();
     game.onReset = () {
-      // Delay calibration by 1 second to give the player time to get in position
       Future.delayed(const Duration(milliseconds: 1000), () {
         poseDetectorService.triggerCalibration();
       });
@@ -147,7 +146,7 @@ final Duration _throttleDuration = const Duration(milliseconds: 200);
     return Scaffold(
       body: Stack(
         children: [
-          // 1. The Flame Game Widget
+
           GameWidget(
             game: game,
             overlayBuilderMap: {
@@ -155,7 +154,6 @@ final Duration _throttleDuration = const Duration(milliseconds: 200);
             },
           ),
 
-          // 2. Floating Circular Camera Preview Overlay (Top-Right)
           Positioned(
             top: 40,
             right: 20,

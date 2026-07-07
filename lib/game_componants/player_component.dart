@@ -115,7 +115,8 @@ add(CircleHitbox(radius: size.x * 0.4, anchor: Anchor.center, position: size / 2
     super.update(dt);
 
     targetX = gameLane.getXForLane(currentLane);
-    position.x += (targetX - position.x) * moveSpeed * dt;
+    final double lerpFactor = (moveSpeed * dt).clamp(0.0, 1.0);
+    position.x += (targetX - position.x) * lerpFactor;
 
     
     if (current == PlayerState.jumping) {

@@ -29,7 +29,7 @@ class PoseDetectorService {
 
   HandState _currentHandState = HandState.center;
   DateTime? _lastVerticalActionTime;
-  final Duration _verticalCooldown = const Duration(milliseconds: 250);
+  final Duration _verticalCooldown = const Duration(milliseconds: 200);
 
 
   void triggerCalibration() {

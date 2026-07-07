@@ -25,7 +25,7 @@ class LowObstacles extends SpriteComponent with HasGameRef<HandsprintGame>,Colli
   Future<void> onLoad() async {
     super.onLoad();
 add(RectangleHitbox(
-  size: Vector2.all(size.y*0.4),
+  size: Vector2.all(size.y*0.3),
 
   anchor: Anchor.center,
   position: size / 2,
@@ -46,7 +46,7 @@ add(RectangleHitbox(
     anchor = Anchor.center;
     targetX = gameLane.getXForLane(currentLane);
     
-    position = Vector2(targetX, gameRef.size.y * 0.45);
+    position = Vector2(targetX, gameRef.size.y * 0.15);
     scale = Vector2.all(currentScale); 
   }
 

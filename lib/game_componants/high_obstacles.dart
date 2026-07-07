@@ -44,7 +44,7 @@ add(RectangleHitbox(
     anchor = Anchor.center;
     targetX = gameLane.getXForLane(currentLane);
     
-    position = Vector2(targetX, gameRef.size.y * 0.45);
+    position = Vector2(targetX, gameRef.size.y * 0.15);
     scale = Vector2.all(currentScale); 
   }
 

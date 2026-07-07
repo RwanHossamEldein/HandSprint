@@ -23,13 +23,13 @@ class PoseDetectorService {
   double _calibratedOffsetX = 0.0;
   double _calibratedOffsetY = 0.0;
 
-  final double _xThreshold = 60.0;     
-  final double _jumpThreshold = 60.0; 
-  final double _slideThreshold = 50.0;
+  final double _xThreshold = 45.0;     
+  final double _jumpThreshold = 45.0; 
+  final double _slideThreshold = 45.0;
 
   HandState _currentHandState = HandState.center;
   DateTime? _lastVerticalActionTime;
-  final Duration _verticalCooldown = const Duration(milliseconds:300);
+  final Duration _verticalCooldown = const Duration(milliseconds: 250);
 
 
   void triggerCalibration() {
